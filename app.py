@@ -2,10 +2,12 @@ from CloudflareBypasser import CloudflareBypasser
 from DrissionPage import ChromiumPage, ChromiumOptions
 
 def main():
-    # Configure the browser for resource optimization
+    # Configure the browser for headless mode and resource optimization
     co = ChromiumOptions()
-    co.set_argument('--no-sandbox')
-    co.set_argument('--disable-dev-shm-usage')
+    co.headless()
+    co.add_argument('--no-sandbox')
+    co.add_argument('--disable-dev-shm-usage')
+    co.add_argument('--disable-gpu')
     
 
     # Initialize the browser with the options
