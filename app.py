@@ -2,18 +2,17 @@ from CloudflareBypasser import CloudflareBypasser
 from DrissionPage import ChromiumPage, ChromiumOptions
 
 def main():
-    # Configure the browser for headless mode and resource optimization
+    # Configure the browser for resource optimization
     co = ChromiumOptions()
-    co.set_argument('--headless')
     co.set_argument('--no-sandbox')
-    co.set_argument('--disable-dev-shm-usage') # Recommended for Docker/container environments
-    co.set_argument('--disable-gpu') # Often helps in headless environments
+    co.set_argument('--disable-dev-shm-usage')
+    
 
     # Initialize the browser with the options
     driver = ChromiumPage(addr_or_opts=co)
     
     # Navigate to the target page
-    driver.get('https://mediateluk.com/sms/index.php?login=1')
+    driver.get('https://nopecha.com/demo/cloudflare')
     
     # Create a CloudflareBypasser instance and run the bypass
     cf_bypasser = CloudflareBypasser(driver)
